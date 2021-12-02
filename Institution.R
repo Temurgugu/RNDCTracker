@@ -10,7 +10,7 @@ library(tidyverse)
 library(viridis)
 library(ggwordcloud)
 
-Institution <- readr::read_csv("data/ClimateAction.csv",
+Institution <- readr::read_csv("Data/ClimateAction.csv",
                                  col_types = cols(Goal = "c",
                                                   Objective = "c",
                                                   Activity = "c",
@@ -25,10 +25,10 @@ Institution <- readr::read_csv("data/ClimateAction.csv",
 
 
 Institution_inst <- Institution %>%
-                      select(Goal, Objective, Activity, Abbreviation) %>%
-                      distinct() %>%
-                      group_by(Goal, Abbreviation) %>%
-                      summarise(Value = n())
+                    dplyr::select(Goal, Objective, Activity, Abbreviation) %>%
+                    dplyr::distinct() %>%
+                    group_by(Goal, Abbreviation) %>%
+                    summarise(Value = n())
                       
 
 InstitutionChart <- ggplot(Institution_inst, aes(Abbreviation , Goal, fill =Value)) +
@@ -58,7 +58,7 @@ InstitutionChart <- ggplot(Institution_inst, aes(Abbreviation , Goal, fill =Valu
 
 
 
-ggsave("visualisation/Institution.png", 
+ggsave("Visualisation/Institution.png",  
        InstitutionChart, 
        width=8.81, 
        height=6.47)  
