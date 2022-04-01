@@ -7,6 +7,7 @@ library(ggplot2)
 library(tidyverse)
 library(viridis)
 
+#Import data 
 
 CAPIndicators <- readr::read_csv("Data/CAPIndicator.csv",
                                  col_types = cols(Goal = "c",
@@ -28,6 +29,7 @@ CAPIndicatorsgroup <- CAPIndicators %>%
   summarise(total = sum(GgCO2e))
 
 
+#Visualization 
 
 Figure2 <- ggplot(CAPIndicators, aes(Year, GgCO2e, fill=Goal, group=Goal)) +
   geom_area(alpha=0.6 , size=.5, colour="white")+
