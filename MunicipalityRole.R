@@ -7,7 +7,7 @@ library(ggplot2)
 library(tidyverse)
 
 
-ndc_survey <- readr::read_csv("data/ndc_survey.csv")
+ndc_survey <- readr::read_csv("Data/ndc_survey.csv")
 
 ndc_survey_Role <- ndc_survey %>%
   select(Respondents:Municipality_Role_CAP_7)
@@ -41,7 +41,7 @@ Summarise_Sectors <- ndc_survey_Role %>%
   summarise(Frequency = n())
 
 
-MunicipalityRole <- ggplot(Summarise_Sectors, aes(Sectors_En, Frequency)) +
+Figure7  <- ggplot(Summarise_Sectors, aes(Sectors_En, Frequency)) +
   geom_col(fill = "#2f7578")+
   geom_hline(yintercept = 25)+
   geom_hline(yintercept = 29)+
@@ -63,8 +63,8 @@ MunicipalityRole <- ggplot(Summarise_Sectors, aes(Sectors_En, Frequency)) +
 
 
 #Save the ggplot
-ggsave("visualization/MunicipalityRole.png", 
-       plot = MunicipalityRole,
+ggsave("Visualisation/Figure7.png", 
+       plot = Figure7,
        units = "mm",
        width = 300,
        height = 200) 
