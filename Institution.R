@@ -59,7 +59,7 @@ Figure5   <- ggplot(Institution_inst, aes(Abbreviation , Goal, fill =Value)) +
 
 
 ggsave("Visualisation/Figure5.png",  
-       InstitutionChart, 
+       Figure5, 
        width=8.81, 
        height=6.47)  
 
