@@ -31,7 +31,7 @@ Institution_inst <- Institution %>%
                     summarise(Value = n())
                       
 
-InstitutionChart <- ggplot(Institution_inst, aes(Abbreviation , Goal, fill =Value)) +
+Figure5   <- ggplot(Institution_inst, aes(Abbreviation , Goal, fill =Value)) +
                     geom_tile() +
                     geom_text(aes(label = Value, color = Value), show.legend = FALSE)+
                     scale_color_viridis(option = "inferno", direction = 1,
@@ -41,7 +41,7 @@ InstitutionChart <- ggplot(Institution_inst, aes(Abbreviation , Goal, fill =Valu
                     theme(axis.title.x = element_text(colour="black", size=11, hjust=0.5),
                           axis.title.y = element_text(colour="black", size=11, hjust=0.5),
                           axis.text.x=element_text(angle = 90,  hjust=1, size=11, colour="black"),
-                          axis.text.y=element_text(size=11),
+                          axis.text.y=element_text(size=11, colour="black"),
                           plot.caption = element_text(size=9, colour="black", hjust=1),
                           plot.title=element_text(colour="black", size=14,  hjust=0),
                           legend.title=element_text(size=11),
@@ -58,7 +58,7 @@ InstitutionChart <- ggplot(Institution_inst, aes(Abbreviation , Goal, fill =Valu
 
 
 
-ggsave("Visualisation/Institution.png",  
+ggsave("Visualisation/Figure5.png",  
        InstitutionChart, 
        width=8.81, 
        height=6.47)  
