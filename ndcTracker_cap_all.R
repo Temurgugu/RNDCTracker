@@ -31,7 +31,7 @@ ClimateActionT <- ClimateAction %>%
 
 collapsibleTreeSummary(
   ClimateActionT,
-  hierarchy = c("Goal","Institution", "Activity", "Type", "amount"),
+  hierarchy = c("Institution", "Type", "Goal","Activity", "amount"),
   width = 800,
   zoomable = TRUE,
   root = "NDC",
